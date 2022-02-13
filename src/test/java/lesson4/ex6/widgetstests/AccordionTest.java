@@ -2,7 +2,6 @@ package lesson4.ex6.widgetstests;
 
 import lesson4.TestBase;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeMethod;
@@ -12,12 +11,12 @@ import java.time.Duration;
 
 public class AccordionTest extends TestBase {
     @BeforeMethod
-    public void getURL(){
+    public void getURL() {
         driver.get("https://seleniumui.moderntester.pl/accordion.php");
     }
 
     @Test
-    public void shouldPrintOutTextFromEachSection(){
+    public void shouldPrintOutTextFromEachSection() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
         System.out.println(driver.findElement(By.id("ui-id-2")).getText());

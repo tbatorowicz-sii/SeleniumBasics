@@ -14,10 +14,10 @@ import java.util.Random;
 public class FormTest extends TestBase {
 
     @Test
-    public void shouldFillFormWithSuccess(){
+    public void shouldFillFormWithSuccess() {
         driver.get("https://seleniumui.moderntester.pl/form.php");
 
-        int fileCountBeforeDownload=new File("C:\\testSeleniumDownloadMyDirectory").list().length;
+        int fileCountBeforeDownload = new File("C:\\testSeleniumDownloadMyDirectory").list().length;
 
         driver.findElement(By.className("btn-secondary")).click();
 
@@ -39,7 +39,7 @@ public class FormTest extends TestBase {
         driver.findElement(By.id("gridCheckAutomationTester")).click();
 
         Select selectContinent = new Select(driver.findElement(By.id("selectContinents")));
-        selectContinent.selectByIndex(new Random().nextInt(1,7));
+        selectContinent.selectByIndex(new Random().nextInt(1, 7));
 
         Select selectCommand = new Select(driver.findElement(By.id("selectSeleniumCommands")));
         selectCommand.selectByIndex(2);
@@ -53,7 +53,7 @@ public class FormTest extends TestBase {
 
         String getText = driver.findElement(By.id("validator-message")).getText();
 
-        int fileCountAfterDownload=new File("C:\\testSeleniumDownloadMyDirectory").list().length;
+        int fileCountAfterDownload = new File("C:\\testSeleniumDownloadMyDirectory").list().length;
 
         File f = new File("C:\\testSeleniumDownloadMyDirectory");
         ArrayList<String> names = new ArrayList<String>(Arrays.asList(f.list()));
@@ -66,7 +66,7 @@ public class FormTest extends TestBase {
         }
 
         Assert.assertEquals(containsCertainFile, true);
-        Assert.assertEquals(fileCountBeforeDownload+1, fileCountAfterDownload);
+        Assert.assertEquals(fileCountBeforeDownload + 1, fileCountAfterDownload);
         Assert.assertEquals(getText, "Form send with success");
 
     }

@@ -13,19 +13,19 @@ import java.time.Duration;
 public class AlertsTest extends TestBase {
 
     @BeforeMethod
-    public void getURL(){
+    public void getURL() {
         driver.get("https://seleniumui.moderntester.pl/alerts.php");
     }
 
     @Test
-    public void shouldPassSimpleAlert(){
+    public void shouldPassSimpleAlert() {
         driver.findElement(By.id("simple-alert")).click();
         driver.switchTo().alert().accept();
         Assert.assertEquals(driver.findElement(By.id("simple-alert-label")).getText(), "OK button pressed");
     }
 
     @Test
-    public void shouldFillPromptAlert(){
+    public void shouldFillPromptAlert() {
         driver.findElement(By.id("prompt-alert")).click();
         driver.switchTo().alert().sendKeys("Lord Vader");
         driver.switchTo().alert().accept();
@@ -33,7 +33,7 @@ public class AlertsTest extends TestBase {
     }
 
     @Test
-    public void shouldAcceptAndDismissAlert(){
+    public void shouldAcceptAndDismissAlert() {
         driver.findElement(By.id("confirm-alert")).click();
         driver.switchTo().alert().accept();
         Assert.assertEquals(driver.findElement(By.id("confirm-label")).getText(), "You pressed OK!");
@@ -43,7 +43,7 @@ public class AlertsTest extends TestBase {
     }
 
     @Test
-    public void shouldWaitForDelayedAlert(){
+    public void shouldWaitForDelayedAlert() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         driver.findElement(By.id("delayed-alert")).click();
         wait.until(ExpectedConditions.alertIsPresent());

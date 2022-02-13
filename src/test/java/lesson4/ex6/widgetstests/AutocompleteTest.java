@@ -12,12 +12,12 @@ import java.util.Random;
 
 public class AutocompleteTest extends TestBase {
     @BeforeMethod
-    public void getURL(){
+    public void getURL() {
         driver.get("https://seleniumui.moderntester.pl/autocomplete.php");
     }
 
     @Test
-    public void shouldDisplaySameInputAsSelectedOption(){
+    public void shouldDisplaySameInputAsSelectedOption() {
         WebElement search = driver.findElement(By.id("search"));
         search.sendKeys("a");
 
@@ -26,7 +26,7 @@ public class AutocompleteTest extends TestBase {
 
         WebElement element = results.get(new Random().nextInt(results.size()));
         element.click();
-        
-        Assert.assertEquals(search.getText(),element.getText());
+
+        Assert.assertEquals(search.getText(), element.getText());
     }
 }

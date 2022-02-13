@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 public class URLTest extends TestBase {
 
     @Test
-    public void testURLCheck(){
+    public void testURLCheck() {
         driver.navigate().to("https://seleniumui.moderntester.pl/");
         Assert.assertEquals(driver.getCurrentUrl(), "https://seleniumui.moderntester.pl/");
     }

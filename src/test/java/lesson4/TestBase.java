@@ -14,7 +14,7 @@ public class TestBase {
     public WebDriver driver;
 
     @BeforeMethod
-    public void setUp(){
+    public void setUp() {
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
@@ -29,7 +29,7 @@ public class TestBase {
     }
 
     @AfterMethod
-    public void tearDown(){
-        //driver.quit();
+    public void tearDown() {
+        driver.quit();
     }
 }
